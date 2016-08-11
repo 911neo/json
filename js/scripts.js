@@ -1,24 +1,55 @@
 
-        //When DOM loaded we attach click event to button
-        $(document).ready(function() {
+(function() {
+  $("button").click( function() {
+  $.getJSON( "https://raw.githubusercontent.com/substack/node-browserify/master/package.json", function(obj) {
 
-            //after button is clicked we download the data
-            $('.button').click(function(){
+  $.each(obj, function(key,value) {
+  $("#keys").append("<li>"+key+"</li>");
 
-                //start ajax request
-                $.ajax({
-                  var url ='https://raw.githubusercontent.com/substack/node-browserify/master/package.json',
-                    //force to handle it as text
-                    dataType: "text",
-                    success: function(data) {
 
-                        //data downloaded so we call parseJSON function
-                        //and pass downloaded data
-                        var json = $.parseJSON(data);
-                        //now json variable contains data in json format
-                        //let's display a few items
-                        $('#results').html('Plugin name: ' + json.name + '<br />Author: ' + json.author.name);
-                    }
-                });
-            });
-        });
+});
+
+$.each(obj, function(key,value) {
+if (typeof value === 'string' || value instanceof String){
+   console.log(value);
+
+   $("#values").append("<li>"+value+"</li>");
+
+ }
+else if ( value instanceof Array)
+  {
+    var len = value.length;
+   console.log(len);
+   $("#values").append("<li>"+len+"</li>");
+  console.log("array");
+
+} else if (typeof value === 'object'){
+  console.log(value);
+  var lenght = Object.keys(obj).length
+
+  $("#values").append("<li>"+lenght+"</li>");
+
+}
+
+
+
+
+});
+
+$.each(obj, function(key,value) {
+$("#type").append("<li>"+key+"</li>");
+$("#type").append("<li>"+value+"</li>");
+
+});
+
+
+
+
+
+
+
+
+});
+});
+
+})();
