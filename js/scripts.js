@@ -2,7 +2,8 @@
 (function() {
 
   $("button").click( function() {
-  $.getJSON( "https://raw.githubusercontent.com/substack/node-browserify/master/package.json", function(obj) {
+  var link = $('#link').val();
+  $.getJSON( link, function(obj) {
 
   $.each(obj, function(key,value) {
   $("#keys").append("<li>"+key+"</li>");
