@@ -1,13 +1,13 @@
 
 (function() {
 
-  $("button").click( function() {
+  $("button").one("click",function() {
     var link = $('#link').val();
     $.getJSON(link,function(obj) {
 
 // keys
     $.each(obj, function(key,value) {
-    $("#keys").append("<tr class="info"><td>"+key+"</td></tr>");
+    $("#keys").append("<tbody><tr class="info"><td>"+key+"</td></tr></tbody>");
 
 
 });
@@ -15,19 +15,19 @@
 $.each(obj, function(key,value) {
 if (typeof value === 'string' || value instanceof String){
     console.log(value);
-    $("#values").append("<tr class="info"><td>"+value+"</td></tr>");
+    $("#values").append("<tbody><tr class="info"><td>"+value+"</td></tr></tbody>");
 
  }
  else if ( value instanceof Array){
     var len = value.length;
     console.log(len);
-    $("#values").append("<tr class="info"><td>"+len+"</td></tr>");
+    $("#values").append("<tbody><tr class="info"><td>"+len+"</td></tr></tbody>");
     console.log(value);
 
 } else if (typeof value === 'object'){
     console.log(value);
     var lenght = Object.keys(value).length
-    $("#values").append("<tr class="info"><td>"+lenght+"</td></tr>");
+    $("#values").append("<tbody><tr class="info"><td>"+lenght+"</td></tr></tbody>");
 
 }
 });
@@ -36,24 +36,25 @@ $.each(obj, function(key,value) {
   if (typeof value === 'string' || value instanceof String){
     console.log(value);
     var type = "String"
-    $("#type").append("<tr class="info"><td>"+type+"</td></tr>");
+    $("#type").append("<tbody><tr class="info"><td>"+type+"</td></tr></tbody>");
 
    }
   else if ( value instanceof Array){
     var len = value.length;
     console.log(len);
     var type = "Array";
-    $("#type").append("<tr class="info"><td>"+type+"</td></tr>");
+    $("#type").append("<tbody><tr class="info"><td>"+type+"</td></tr></tbody>");
     console.log(value);
 
   } else if (typeof value === 'object'){
     console.log(value);
     var type = "Object"
-    $("#type").append("<tr class="info"><td>"+type+"</td></tr>");
+    $("#type").append("<tbody><tr class="info"><td>"+type+"</td></tr></tbody>");
 
   }
 
 });
 });
+
 });
 })();
