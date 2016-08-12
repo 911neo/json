@@ -6,23 +6,62 @@
     <title>Json beautify</title>
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css"/>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-
-
-
   </head>
+
   <body>
 
+  <header>
 
-    <h1>Keys</h1>
-         <ul id="keys"></ul>
-         <h1>Preview of the value</h1>
-         <ul id="values"></ul>
-         <h1>Type</h1>
-         <ul id="type"></ul>
-         <button>Json beautify</button>
+    <div class="container">
+    <div class="jumbotron">
+    <h2>Json Beautify</h2>
+    <p>A simple Application by Diabolocom to beatify and structure and json url link.</p>
+    </div>
+    </div>
+  </header>
+  
+  <input type="text" placeholder="Enter Json url Link "value="">
+  <button>Json beautify</button>
+
+  <div class="row">
+
+  <div class="col-sm-1">
+
+  </div>
+
+  <div class="col-sm-9">
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Keys</th>
+          <th>Preview of the value</th>
+          <th>Type</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="info">
+          <td id="keys"></td>
+          <td id="values"></td>
+          <td id="type"></td>
+        </tr>
+
+
+      </tbody>
+    </table>
 
 
 
+
+
+  </div>
+  <div class="col-sm-2"></div>
+</div>
+
+ <footer>
+
+
+ </footer>
 
 
 <script src="js/scripts.js"></script>
