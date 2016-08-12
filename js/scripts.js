@@ -2,80 +2,58 @@
 (function() {
 
   $("button").click( function() {
-  var link = $('#link').val();
-  $.getJSON( link, function(obj) {
+    var link = $('#link').val();
+    $.getJSON(link,function(obj) {
 
-  $.each(obj, function(key,value) {
-  $("#keys").append("<li>"+key+"</li>");
+// keys
+    $.each(obj, function(key,value) {
+    $("#keys").append("<tr class="info"><td>"+key+"</td></tr>");
 
 
 });
 
 $.each(obj, function(key,value) {
 if (typeof value === 'string' || value instanceof String){
-   console.log(value);
-
-   $("#values").append("<li>"+value+"</li>");
+    console.log(value);
+    $("#values").append("<tr class="info"><td>"+value+"</td></tr>");
 
  }
-else if ( value instanceof Array)
-  {
+ else if ( value instanceof Array){
     var len = value.length;
-   console.log(len);
-   $("#values").append("<li>"+len+"</li>");
-  console.log(value);
+    console.log(len);
+    $("#values").append("<tr class="info"><td>"+len+"</td></tr>");
+    console.log(value);
 
 } else if (typeof value === 'object'){
-  console.log(value);
-  var lenght = Object.keys(obj).length
-
-  $("#values").append("<li>"+lenght+"</li>");
+    console.log(value);
+    var lenght = Object.keys(value).length
+    $("#values").append("<tr class="info"><td>"+lenght+"</td></tr>");
 
 }
-
-
-
-
 });
-
+// types
 $.each(obj, function(key,value) {
   if (typeof value === 'string' || value instanceof String){
-     console.log(value);
+    console.log(value);
     var type = "String"
-     $("#type").append("<li>"+type+"</li>");
+    $("#type").append("<tr class="info"><td>"+type+"</td></tr>");
 
    }
-  else if ( value instanceof Array)
-    {
-      var len = value.length;
-     console.log(len);
-     var type = "Array";
-     $("#type").append("<li>"+type+"</li>");
+  else if ( value instanceof Array){
+    var len = value.length;
+    console.log(len);
+    var type = "Array";
+    $("#type").append("<tr class="info"><td>"+type+"</td></tr>");
     console.log(value);
 
   } else if (typeof value === 'object'){
     console.log(value);
     var type = "Object"
-    var lenght = Object.keys(obj).length
-
-    $("#type").append("<li>"+type+"</li>");
+    $("#type").append("<tr class="info"><td>"+type+"</td></tr>");
 
   }
 
-
-
-
-
-});
-
-
-
-
-
-
-
-
 });
 });
-
+});
 })();
