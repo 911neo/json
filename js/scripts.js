@@ -1,5 +1,5 @@
 
-(function() {
+
 
   $("button").one('click',function() {
     var link = $('#link').val();
@@ -57,4 +57,3 @@ $.each(obj, function(key,value) {
 });
 
 });
-})();
