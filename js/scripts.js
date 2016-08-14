@@ -15,7 +15,9 @@
 $.each(obj, function(key,value) {
 if (typeof value === 'string' || value instanceof String){
     console.log(value);
-    $("#values").append("<tbody><tr ><td>"+value+"</td></tr></tbody>");
+    var trimvalue = jQuery.trim(value).substring(0,10);
+
+    $("#values").append("<tbody><tr ><td>"+trimvalue+"</td></tr></tbody>");
 
  }
  else if ( value instanceof Array){
